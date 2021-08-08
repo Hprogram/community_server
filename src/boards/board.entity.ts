@@ -13,9 +13,6 @@ export class Board {
   id: number;
 
   @Column()
-  userId: number; // 유저 고유 아이디.
-
-  @Column()
   title: string; // 제목
 
   @Column()
@@ -27,6 +24,6 @@ export class Board {
   @CreateDateColumn() // 생성 시간
   createdAt: string;
 
-  @ManyToOne(() => User, (user) => user.boards)
-  user: User;
+  @ManyToOne(() => User, (user) => user.boards, { onDelete: 'CASCADE' })
+  userId: User;
 }
