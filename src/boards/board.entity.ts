@@ -13,6 +13,9 @@ export class Board {
   id: number;
 
   @Column()
+  userId: number; // 유저 고유 아이디.
+
+  @Column()
   title: string; // 제목
 
   @Column()
