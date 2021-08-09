@@ -1,5 +1,6 @@
+import { Likes } from 'src/entities/like.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Board } from '../boards/board.entity';
+import { Board } from './board.entity';
 
 @Entity('USER')
 export class User {
@@ -17,4 +18,7 @@ export class User {
 
   @OneToMany(() => Board, (board) => board.userId, { cascade: true })
   boards: Board[];
+
+  @OneToMany((type) => Likes, (likes) => likes.user, { cascade: true })
+  likes!: number[];
 }

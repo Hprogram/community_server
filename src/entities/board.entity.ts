@@ -1,11 +1,13 @@
+import { Likes } from 'src/entities/like.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User } from './user.entity';
 
 @Entity('BOARD')
 export class Board {
@@ -19,11 +21,14 @@ export class Board {
   content: string; // 내용
 
   @Column()
-  like: string; // 좋아요
+  like: number; // 좋아요
 
   @CreateDateColumn() // 생성 시간
   createdAt: string;
 
   @ManyToOne(() => User, (user) => user.boards, { onDelete: 'CASCADE' })
   userId: User;
+
+  @OneToMany((type) => Likes, (likes) => likes.board, { cascade: true })
+  likes!: number[];
 }
