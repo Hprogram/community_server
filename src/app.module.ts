@@ -2,9 +2,10 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Board } from './boards/board.entity';
+import { Board } from './entities/board.entity';
 import { BoardsModule } from './boards/boards.module';
-import { User } from './users/user.entity';
+import { Likes } from './entities/like.entity';
+import { User } from './entities/user.entity';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -16,7 +17,7 @@ import { UsersModule } from './users/users.module';
       username: 'root',
       password: '1234',
       database: 'community_data',
-      entities: [User, Board], // 사용할 entity의 클래스명을 넣어둔다.
+      entities: [User, Board, Likes], // 사용할 entity의 클래스명을 넣어둔다.
       synchronize: true, // false로 해두는 게 안전하다.
     }),
     BoardsModule,
