@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { join } from 'path/posix';
-import { User } from './user.entity';
+import { User } from '../entities/user.entity';
 import { UsersService } from './users.service';
 
 @Controller('api/users')
