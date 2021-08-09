@@ -26,6 +26,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.2",
     "bcrypt": "^5.0.1",
+    "dotenv": "^8.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.0",
